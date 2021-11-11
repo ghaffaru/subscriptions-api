@@ -7,9 +7,9 @@ namespace App\Services;
 use App\Models\Subscriber;
 use App\Models\Website;
 
-class SubcriberService
+class SubscriberService
 {
-    public function createNewSubscriber($request)
+    public static function createNewSubscriber($request)
     {
         $website = Website::findOrFail($request->website_id);
 

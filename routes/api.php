@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SubscriberController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -21,4 +22,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::prefix('website')->group(function () {
    Route::get('', [WebsiteController::class, 'index']);
+});
+
+Route::prefix('subscriber')->group(function() {
+    Route::post('', [SubscriberController::class, 'store']);
 });
