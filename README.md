@@ -57,6 +57,10 @@ php artisan email:subscribers --post_id={postId} --website_id={websiteId}
 php artisan serve
 ```
 
+### start queue worker
+```
+php artisan queue:work
+```
 ### api docs
 https://documenter.getpostman.com/view/6347827/UVC6jSVS
 
