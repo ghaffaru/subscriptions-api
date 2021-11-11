@@ -46,7 +46,9 @@ class TriggerEmailToSubscribers extends Command
     {
         $post = Post::findOrFail($this->option('post_id'));
         $website = Website::findOrFail($this->option('website_id'));
-
-        dispatch_now(new SendSubscribersMailJob($post,$website));
+        if (!$post->sent) {
+            dispatch_now(new SendSubscribersMailJob($post,$website));
+            $post->update(['sent' => true]);
+        }
     }
 }
