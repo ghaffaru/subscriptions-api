@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\SubscriberController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -26,4 +27,8 @@ Route::prefix('website')->group(function () {
 
 Route::prefix('subscriber')->group(function() {
     Route::post('', [SubscriberController::class, 'store']);
+});
+
+Route::prefix('post')->group(function() {
+    Route::post('', [PostController::class, 'store']);
 });
