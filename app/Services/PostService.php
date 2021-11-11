@@ -4,6 +4,7 @@
 namespace App\Services;
 
 
+use App\Events\PostPublished;
 use App\Models\Post;
 use App\Models\Website;
 
@@ -28,7 +29,8 @@ class PostService
             'website_id' => $request->website_id
         ]);
 
-        // trigger event
+        event(new PostPublished($post,$website));
+
         return response()->json(['message' => 'Post published successfully!', 'post' => $post]);
     }
 }
